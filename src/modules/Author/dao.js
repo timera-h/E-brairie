@@ -5,11 +5,17 @@ class Author extends Model {
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                firstName: DataTypes.STRING, 
-                lastName: DataTypes.STRING,
-                description: DataTypes.STRING
+                first_name: DataTypes.STRING, 
+                last_name: DataTypes.STRING,
+                description: DataTypes.STRING,                
             },
-             {sequelize, modelName: 'Author'}
+            
+             {sequelize, modelName: 'Author',
+             //to avoid the rename of the table by the orm that uses plural eg 'author' would swap to 'authors'
+             freezeTableName: true, 
+             //to disable 'updated' and 'created' timestamp fields generation
+             timestamps: false}
+                      
         );
     }
     // static associate(models) {
@@ -17,7 +23,5 @@ class Author extends Model {
     // }
     
 };
-
-
 
 export default Author;

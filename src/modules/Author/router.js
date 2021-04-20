@@ -8,7 +8,8 @@ class AuthorRouter {
     initializeRoutes({ authorController }) {
         this.router.route('/authors')
             .get(authorController.getAll)
-            .get(authorController.getById);
+        this.router.route('/authors/:id')
+            .get(authorController.getById)    
 
         this.router.route('/authors/save')
             .post(authorController.save);
