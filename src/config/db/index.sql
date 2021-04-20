@@ -62,3 +62,7 @@ USE ebrairie;
 
  ALTER TABLE Profile
  ADD FOREIGN KEY (id_account) REFERENCES Account(id);
+
+ INSERT INTO Author (`id`, `first_name`, `last_name`, `description`) VALUES
+ (1, 'Victor', 'Hugo', 'Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle'),
+ (2, 'Anne', 'Frank', "Le Journal d'Anne Frank est le livre composé du journal intime tenu par Anne Frank, jeune fille juive allemande exilée aux Pays-Bas");
