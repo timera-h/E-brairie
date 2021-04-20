@@ -15,7 +15,6 @@ getAll = async (req, res) => {
 
 save = async (req, res) => {
     const author = req.body.author
-
     try {
         this.authorService.save(author);
         res.status(201).json('new author saved');
@@ -25,8 +24,7 @@ save = async (req, res) => {
 } 
 
 getById = async (req, res) => {
-    const authorId = req.body.id;
-
+    const authorId = req.params.id;
     try {
         let author = this.authorService.getByid(authorId);
         res.status(201).json(author);

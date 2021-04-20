@@ -1,7 +1,7 @@
 class AuthorRouter {
     constructor({ router, authorController }) {
         this.router = router;
-        this.initializeRoutes({ auth, authorController });
+        this.initializeRoutes({authorController });
         return this.router;
     }
 

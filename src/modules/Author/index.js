@@ -9,12 +9,12 @@ import AuthorController from './controller';
 import AuthorRouter from './router';
 
 const router = Router();
-const AuthorDao = Author.init(db.sequelize, DataTypes);
-const AuthorRepository = new AuthorRepository(AuthorDao);
-const AuthorService = new AuthorService(AuthorRepository);
-const AuthorController = new AuthorController({AuthorService});
-const AuthorRouter = new AuthorRouter({router,AuthorController});
+const authorDao = Author.init(db.sequelize, DataTypes);
+const authorRepository = new AuthorRepository(authorDao);
+const authorService = new AuthorService(authorRepository);
+const authorController = new AuthorController({authorService});
+const authorRouter = new AuthorRouter({router, authorController});
 
-export {AuthorService, AuthorDao};
+export {authorService, authorDao};
 
-export default AuthorRouter;
+export default authorRouter;

@@ -5,9 +5,9 @@ class Author extends Model {
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                firstName: DataTypes.String, 
-                lastName: DataTypes.String,
-                description: DataTypes.String
+                firstName: DataTypes.STRING, 
+                lastName: DataTypes.STRING,
+                description: DataTypes.STRING
             },
              {sequelize, modelName: 'Author'}
         );
