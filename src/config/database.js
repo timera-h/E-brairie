@@ -7,5 +7,8 @@ sequelize.authenticate()
 .then(() => {
     console.log('connecté ');
 })
+.catch((e) => {
+    console.error(e);
+})
 
 export default db;
