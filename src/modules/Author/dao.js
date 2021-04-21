@@ -1,11 +1,10 @@
 import {Model} from 'sequelize';
 
-
 class Author extends Model {
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                first_name: DataTypes.STRING, 
+                first_name: DataTypes.STRING,                
                 last_name: DataTypes.STRING,
                 description: DataTypes.STRING,                
             },

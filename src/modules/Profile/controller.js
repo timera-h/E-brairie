@@ -16,7 +16,7 @@ getAll = async (req, res) => {
 save = async (req, res) => {
     const profile = req.body.profile
     try {
-        this.profileService.save(profile);
+        await this.profileService.save(profile);
         res.status(201).json('new profile saved');
     } catch(error) {
         res.status(400).json(error);
@@ -26,8 +26,8 @@ save = async (req, res) => {
 getById = async (req, res) => {
     const profileId = req.params.id;
     try {
-        let profile = this.profileService.getByid(profileId);
-        res.status(201).json(profile);
+        let profile = await this.profileService.getById(profileId);
+        res.status(200).json(profile);
     } catch(error) {
         res.status(400).json(error);
     }

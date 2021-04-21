@@ -15,7 +15,7 @@ class AuthorRepository {
     }
 
     async getById(authorId) {
-        return await this.authorDAO.findOne({where: {id: authorId}});
+        return await this.authorDAO.findOne({where: { id: authorId }});
     }    
 }
 
