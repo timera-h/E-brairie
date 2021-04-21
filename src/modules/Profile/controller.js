@@ -1,33 +1,33 @@
-class AuthorController {
+class ProfileController {
     
-constructor({authorService}) {
-    this.authorService = authorService;     
+constructor({profileService}) {
+    this.profileService = profileService;     
 }
 
 getAll = async (req, res) => {
     try {
-        let authors = await this.authorService.getAll();
-        res.status(200).json(authors);
+        let profiles = await this.profileService.getAll();
+        res.status(200).json(profiles);
     } catch(error) {
         res.status(400).json(error)
     }
 }
 
 save = async (req, res) => {
-    const author = req.body.author
+    const profile = req.body.profile
     try {
-        this.authorService.save(author);
-        res.status(201).json('new author saved');
+        this.profileService.save(profile);
+        res.status(201).json('new profile saved');
     } catch(error) {
         res.status(400).json(error);
     }
 } 
 
 getById = async (req, res) => {
-    const authorId = req.params.id;
+    const profileId = req.params.id;
     try {
-        let author = this.authorService.getByid(authorId);
-        res.status(201).json(author);
+        let profile = this.profileService.getByid(profileId);
+        res.status(201).json(profile);
     } catch(error) {
         res.status(400).json(error);
     }
@@ -35,4 +35,4 @@ getById = async (req, res) => {
 
 }
 
-export default AuthorController;
+export default ProfileController;

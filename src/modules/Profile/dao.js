@@ -2,7 +2,7 @@ import {Model} from 'sequelize';
 
 //have to find a way to separate datatypes init and table config for inheritance of 
 //class attributes such as first and last name otherwise the class diagram would be fucking useless
-//have to test one to one relation atm
+//have to test one to one relation 
 class Profile extends Model {
     static init(sequelize, DataTypes) {
         return super.init(
@@ -31,4 +31,4 @@ class Profile extends Model {
     
 };
 
-export default Author;
+export default Profile;

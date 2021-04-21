@@ -15,7 +15,7 @@ class AuthorRepository {
     }
 
     async getById(authorId) {
-        return await this.authorDAO.findByPk(authorId);
+        return await this.authorDAO.findOne({where: {id: authorId}});
     }    
 }
 

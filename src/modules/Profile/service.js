@@ -1,21 +1,21 @@
-class AuthorService {
+class ProfileService {
 
-    constructor(authorRepository) {
-        this.authorRepository = authorRepository;
+    constructor(ProfileRepository) {
+        this.ProfileRepository = ProfileRepository;
     }
 
     async getAll() {
-        return await this.authorRepository.getAll();
+        return await this.ProfileRepository.getAll();
     }
 
-    async save(newAuthor) {
-        return await this.authorRepository.save(newAuthor);
+    async save(newProfile) {
+        return await this.ProfileRepository.save(newProfile);
     }
 
-    async getById(authorId) {
-        return await this.authorRepository.getById(authorId);
+    async getById(ProfileId) {
+        return await this.ProfileRepository.getById(ProfileId);
     }
 
 }
 
-export default AuthorService;
+export default ProfileService;
