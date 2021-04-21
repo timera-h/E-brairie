@@ -1,18 +1,18 @@
 class ProfileRouter {
 
-    constructor({router, profileController}) {
+    constructor({ router, profileController }) {
         this.router = router;
         this.initializeRoutes({profileController});
         return this.router;
     }
 
-    initializeRoutes({profileController}) {
-        this.router.route('/Profiles')
+    initializeRoutes({ profileController }) {
+        this.router.route('/profiles')
             .get(profileController.getAll);
-            this.router.route('/Profile/:id')            
+            this.router.route('/profile/:id')            
             .get(profileController.getById);    
 
-        this.router.route('/Profile')
+        this.router.route('/profile')
             .post(profileController.save);
     }
 }
