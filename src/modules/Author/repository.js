@@ -16,7 +16,11 @@ class AuthorRepository {
 
     async getById(authorId) {
         return await this.authorDAO.findOne({where: { id: authorId }});
-    }    
+    }   
+    
+    async getByNames(firstName, lastName) {
+        return await this.authorDAO.findOne({where: { first_name: firstName, last_name: lastName}});
+    }
 }
 
 export default AuthorRepository;

@@ -16,6 +16,10 @@ class AuthorService {
         return await this.authorRepository.getById(authorId);
     }
 
+    async getByNames(firstName, lastName) {
+        return await this.authorRepository.getByNames(firstName, lastName);
+    }
+
 }
 
 export default AuthorService;

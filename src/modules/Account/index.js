@@ -15,8 +15,8 @@ import AccountRouter from './router';
 const router = Router();
 const accountDao = Account.init(db.sequelize, DataTypes);
 const accountRepository = new AccountRepository(accountDao);
-const accountService = new AccountService(accountRepository);
-const accountController = new AccountController({accountService, mailer: mailerService, jwt: jwtService, bcrypt});
+const accountService = new AccountService(accountRepository, bcrypt);
+const accountController = new AccountController({accountService, mailer: mailerService, jwt: jwtService});
 const accountRouter = new AccountRouter({router, auth, accountController});
 
 export {accountService, accountDao};

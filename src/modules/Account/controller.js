@@ -1,10 +1,9 @@
 class AccountController {
 
-    constructor({accountService, mailer, jwt, bcrypt}) {
+    constructor({accountService, mailer, jwt}) {
         this.accountService = accountService;
         this.jwt = jwt;
-        this.mailer = mailer;
-        this.bcrypt = bcrypt;
+        this.mailer = mailer;        
     }
 
     getAll = async (req, res) => {
@@ -26,12 +25,8 @@ class AccountController {
             if (!email || !password)
                 res.status(400).json("missing parameters")
             else {
-                const salt = this.bcrypt.genSaltSync(10);
-                const hash = this.bcrypt.hashSync(password, salt);
-
-                let account = await this.accountService.register({email, password: hash, is_admin: false});
+                let account = await accountService.register(email, password);
                 await this.mailer.sendMail(account.dataValues);
-
                 res.status(201).json("new account registered");
             }
 
