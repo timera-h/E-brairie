@@ -1,6 +1,6 @@
-import userRouter from './User';
+import accountRouter from './Account';
 import authorRouter from './Author';
 
-const routes = [userRouter, authorRouter];
+const routes = [accountRouter, authorRouter];
 
 export default routes;

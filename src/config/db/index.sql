@@ -61,7 +61,7 @@ USE ebrairie;
  );
 
  ALTER TABLE Profile
- ADD FOREIGN KEY (id_account) REFERENCES Account(id);
+ ADD FOREIGN KEY (id_account) REFERENCES Accounts(id);
 
  INSERT INTO Author (`id`, `first_name`, `last_name`, `description`) VALUES
  (1, 'Victor', 'Hugo', 'Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle'),

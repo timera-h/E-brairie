@@ -16,8 +16,7 @@ class AuthorRepository {
 
     async getById(authorId) {
         return await this.authorDAO.findByPk(authorId);
-    }
-    
+    }    
 }
 
 export default AuthorRepository;
