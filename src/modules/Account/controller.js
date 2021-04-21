@@ -25,7 +25,7 @@ class AccountController {
             if (!email || !password)
                 res.status(400).json("missing parameters")
             else {
-                let account = await accountService.register(email, password);
+                let account = await this.accountService.register(email, password);
                 await this.mailer.sendMail(account.dataValues);
                 res.status(201).json("new account registered");
             }
