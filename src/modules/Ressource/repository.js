@@ -16,7 +16,9 @@ class RessourceRepository {
 
     async getById(ressourceId) {
         return await this.ressourceDAO.findOne({where: { id: ressourceId }});
-    }    
+    } 
+    
+    
 }
 
 export default RessourceRepository;

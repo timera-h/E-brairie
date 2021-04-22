@@ -1,8 +1,9 @@
 class AccountService {
 
-    constructor(accountRepo, bcrypt) {
+    constructor(accountRepo, bcrypt, profilDao) {
         this.accountRepo = accountRepo;
         this.bcrypt = bcrypt;
+        this.profilDao = profilDao;
     }
 
     async getAll() {
@@ -11,7 +12,7 @@ class AccountService {
 
     async register(email, password) {
         const salt = this.bcrypt.genSaltSync(10);
-        const hash = this.bcrypt.hashSync(password, salt);
+        const hash = this.bcrypt.hashSync(password, salt);        
         return await this.accountRepo.register({email, password: hash, is_admin: false});        
         
     }

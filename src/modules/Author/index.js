@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import {DataTypes} from 'sequelize';
 import db from '../../config/database';
+import profileDao from '../Profile/dao';
 
 import Author from './dao';
 import AuthorRepository from './repository';
@@ -12,7 +13,7 @@ const router = Router();
 const authorDao = Author.init(db.sequelize, DataTypes);
 const authorRepository = new AuthorRepository(authorDao);
 const authorService = new AuthorService(authorRepository);
-const authorController = new AuthorController({authorService});
+const authorController = new AuthorController({authorService, profileDao});
 const authorRouter = new AuthorRouter({router, authorController});
 
 export {authorService, authorDao};

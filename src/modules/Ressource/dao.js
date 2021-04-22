@@ -21,9 +21,11 @@ class Ressource extends Model {
                       
         );
     }
-    // static associate(models) {
-    //     return this;
-    // }
+    static associate(models) {
+        this.belongsTo(models.Author, { foreignKey: 'id_author', as: 'Author'});
+        this.hasMany(models.Borrow, { foreignKey: 'id_ressource', as: 'Borrow'});
+        // return this;
+    }
     
 };
 

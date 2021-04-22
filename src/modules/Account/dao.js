@@ -4,10 +4,16 @@ class Account extends Model {
     static init(sequelize, DataTypes) {
         return super.init(
             {
-                email: DataTypes.STRING,
+                email: {
+                    type: DataTypes.STRING,
+                    // checks for email format (foo@foo.com)
+                    validate: {
+                        isEmail: true,
+                    }
+                },
                 password: DataTypes.STRING,
                 is_admin: DataTypes.BOOLEAN
-                
+
             },
             {
                 sequelize,
@@ -18,10 +24,9 @@ class Account extends Model {
         );
     }
     static associate(models) {
-        // define association here
-
-        return this;
-    }
+        this.hasOne(models.Profile, { foreignKey: "id_profile" });
+        // return this;
+    };
 };
 
 export default Account;

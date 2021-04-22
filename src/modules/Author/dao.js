@@ -17,9 +17,11 @@ class Author extends Model {
                       
         );
     }
-    // static associate(models) {
-    //     return this;
-    // }
+    static associate(models) {
+
+        Author.hasMany(models.Ressource, { foreignKey: 'id_author', as: 'Ressource' });
+        // return this;
+    }
     
 };
 
