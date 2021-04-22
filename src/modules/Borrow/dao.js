@@ -18,10 +18,9 @@ class Borrow extends Model {
         );
     }
     static associate(models) {
-        //dunno if belongsTo or belongsToMany
-        this.belongsTo(models.Profile, { foreignKey: 'id_profile', as: 'Profile'});
-        this.belongsTo(models.Ressource, { foreignKey: 'id_ressource', as: 'Ressource'});
-    //     return this;
+        this.belongsTo(models.profileDao, {foreignKey: 'id_profile', as: 'Profile'});
+        this.belongsTo(models.ressourceDao, {foreignKey: 'id_ressource', as: 'Ressource'});
+        return this;
     }
     
 };

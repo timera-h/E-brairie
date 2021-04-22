@@ -1,4 +1,4 @@
-import { Model } from 'sequelize';
+import { DATEONLY, Model } from 'sequelize';
 
 
 class Profile extends Model {
@@ -41,10 +41,13 @@ class Profile extends Model {
 
         );
     }
-    static associate(models) {
-        this.belongsTo(models.Account, { foreignKey: 'id_account', as: 'Account' });
-        this.hasMany(models.Borrow, { foreignKey: 'id_account', as: 'Borrow' });
+    static associate(models) {        
+        this.belongsTo(models.accountDao, { foreignKey: 'id_account', as: 'Account' });
+        this.hasMany(models.borrowDao, { foreignKey: 'id_profile', as: 'Borrow' });
+        return this;
     };
 };
 
 export default Profile;
+
+

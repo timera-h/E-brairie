@@ -13,7 +13,7 @@ USE ebrairie;
  CREATE TABLE IF NOT EXISTS Ressource (
      `id` INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
      `title` VARCHAR(255) NOT NULL,
-     `quantiy` INTEGER NOT NULL,
+     `quantity` INTEGER NOT NULL,
      `row` INTEGER,
      `column` INTEGER,
      `category` VARCHAR(255) NOT NULL,
@@ -63,10 +63,10 @@ USE ebrairie;
  ALTER TABLE Profile
  ADD FOREIGN KEY (id_account) REFERENCES Account(id);
 
- INSERT INTO Author (`id`, `first_name`, `last_name`, `description`) VALUES
- (1, 'Victor', 'Hugo', 'Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle'),
- (2, 'Anne', 'Frank', "Le Journal d'Anne Frank est le livre composé du journal intime tenu par Anne Frank, jeune fille juive allemande exilée aux Pays-Bas");
+--  INSERT INTO Author (`id`, `first_name`, `last_name`, `description`) VALUES
+--  (1, 'Victor', 'Hugo', 'Dans ce roman emblématique de la littérature française qui décrit la vie de pauvres gens dans Paris et la France provinciale du xixe siècle'),
+--  (2, 'Anne', 'Frank', "Le Journal d'Anne Frank est le livre composé du journal intime tenu par Anne Frank, jeune fille juive allemande exilée aux Pays-Bas");
 
- INSERT INTO Account (`id`, `email`, `password`, `is_admin`) VALUES
- (1, 'toto@gmail.com', 'azerty', false),
- (2, 'Anne@hotmail.fr', 'Frank123', true);
+--  INSERT INTO Account (`id`, `email`, `password`, `is_admin`) VALUES
+--  (1, 'toto@gmail.com', 'azerty', false),
+--  (2, 'Anne@hotmail.fr', 'Frank123', true);

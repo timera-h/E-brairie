@@ -22,9 +22,9 @@ class Ressource extends Model {
         );
     }
     static associate(models) {
-        this.belongsTo(models.Author, { foreignKey: 'id_author', as: 'Author'});
-        this.hasMany(models.Borrow, { foreignKey: 'id_ressource', as: 'Borrow'});
-        // return this;
+        this.belongsTo(models.authorDao, { foreignKey: 'id_author', as: 'Author'});
+        this.hasMany(models.borrowDao, { foreignKey: 'id_ressource', as: 'Borrow'});
+        return this;
     }
     
 };

@@ -24,8 +24,8 @@ class Account extends Model {
         );
     }
     static associate(models) {
-        this.hasOne(models.Profile, { foreignKey: "id_profile" });
-        // return this;
+    this.hasOne(models.profileDao, {foreignKey: "id_account", as: 'Profile'});
+        return this;
     };
 };
 

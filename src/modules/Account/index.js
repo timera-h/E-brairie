@@ -6,7 +6,6 @@ import {auth} from '../../middlewares';
 import db from '../../config/database';
 import Profile from '../Profile/dao';
 
-
 import Account from './dao';
 import AccountRepository from './repository';
 import AccountService from './service';
