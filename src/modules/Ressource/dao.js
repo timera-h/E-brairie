@@ -5,13 +5,25 @@ class Ressource extends Model {
         return super.init(
             {
                 title: DataTypes.STRING,
-                quantiy: DataTypes.INTEGER,
-                row: DataTypes.INTEGER,
-                column: DataTypes.INTEGER,
+                quantity: DataTypes.INTEGER,
+                row: {
+                    type: DataTypes.INTEGER,
+                    allowNull : true
+                } ,
+                column: {
+                    type: DataTypes.INTEGER,
+                    allowNull : true
+                } ,
                 category: DataTypes.STRING,
                 is_borrowed: DataTypes.BOOLEAN,
-                serie: DataTypes.STRING,
-                tome_number: DataTypes.INTEGER,
+                serie:{
+                    type: DataTypes.STRING,
+                    allowNull : true
+                } ,
+                tome_number: {
+                    type: DataTypes.INTEGER,
+                    allowNull : true
+                } ,
                 genre: DataTypes.STRING                            
             },
             

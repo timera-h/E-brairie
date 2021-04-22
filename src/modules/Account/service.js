@@ -1,9 +1,9 @@
 class AccountService {
 
-    constructor(accountRepo, bcrypt, profilDao) {
+    constructor(accountRepo, bcrypt, profileDao) {
         this.accountRepo = accountRepo;
         this.bcrypt = bcrypt;
-        this.profilDao = profilDao;
+        this.profileDao = profileDao;
     }
 
     async getAll() {
@@ -12,16 +12,22 @@ class AccountService {
 
     async register(email, password) {
         const salt = this.bcrypt.genSaltSync(10);
-        const hash = this.bcrypt.hashSync(password, salt);        
-        return await this.accountRepo.register({email, password: hash, is_admin: false});        
-        
+        const hash = this.bcrypt.hashSync(password, salt);
+        return await this.accountRepo.register({ email, password: hash, is_admin: false });
+
     }
-    
+
+    async accountProfilCreate(account) {       
+        return await this.profileDao.create({is_warned: false })
+            .then(profile => {
+                account.setProfile(profile)
+            });
+    }
+
     async getByMail(mail) {
         return await this.accountRepo.getByMail(mail);
     }
 
-     
 }
 
 export default AccountService;

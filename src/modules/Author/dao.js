@@ -18,7 +18,6 @@ class Author extends Model {
         );
     }
     static associate(models) {
-        console.log(this, models);
         this.hasMany(models.ressourceDao, { foreignKey: 'id_author', as: 'Ressource' });
         return this;
     }

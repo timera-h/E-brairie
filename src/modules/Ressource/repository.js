@@ -18,6 +18,9 @@ class RessourceRepository {
         return await this.ressourceDAO.findOne({where: { id: ressourceId }});
     } 
     
+    async getByFilters(reqQuery) {
+        return await this.ressourceDAO.findAll({where: {...reqQuery}});
+    }
     
 }
 

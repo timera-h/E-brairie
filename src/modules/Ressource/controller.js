@@ -13,10 +13,23 @@ getAll = async (req, res) => {
     }
 }
 
+getByFilters = async (req, res) => {    
+    const params = req.query
+    console.log(params)
+    try {
+        let ressources = await this.ressourceService.getByFilters(params);
+        res.status(200).json(ressources);
+    } catch(error) {
+        res.status(400).json(error)
+    }
+} 
+
 save = async (req, res) => {
     const ressource = req.body
+    const lastName = req.params.last_name;
+    const firstName = req.params.first_name;
     try {
-        await this.ressourceService.save(ressource);
+        await this.ressourceService.save(ressource, lastName, firstName);
         res.status(201).json('new ressource saved');
     } catch(error) {
         res.status(400).json(error);
