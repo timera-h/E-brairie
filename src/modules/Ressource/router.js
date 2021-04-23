@@ -10,7 +10,7 @@ class RessourceRouter {
         this.router.route('/ressources')
             .get(ressourceController.getAll);
         
-        this.router.route('/ressources/filter')
+        this.router.route('/ressources/filters')
             .get(ressourceController.getByFilters);
 
         this.router.route('/ressource/:id')

@@ -1,9 +1,9 @@
 class AccountController {
 
-    constructor({accountService, jwt}) {
+    constructor({ accountService, jwt }) {
         this.accountService = accountService;
         this.jwt = jwt;
-               
+
     }
 
     getAll = async (req, res) => {
@@ -16,20 +16,19 @@ class AccountController {
             res.status(400).json(err);
         }
     }
-    
+
     register = async (req, res) => {
         const email = req.body.email;
-        const password = req.body.password;        
+        const password = req.body.password;
         try {
 
             if (!email || !password)
-                res.status(400).json("missing parameters")
+                res.status(400).json('missing parameters')
             else {
-                let account = await this.accountService.register(email, password)
-                await this.accountService.accountProfilCreate(account);                                
-                res.status(201).json("new account registered");
+                let account = await this.accountService.register(email, password);
+                await this.accountService.accountProfilCreate(account);               
             }
-
+            res.status(201).json('new account registered');
         }
         catch (err) {
             res.status(400).json('erreur server');
@@ -54,7 +53,7 @@ class AccountController {
             }
             else
                 return res.status(400).json('Invalid Password');
-            
+
         } catch (err) {
             res.status(400).json(err);
         }

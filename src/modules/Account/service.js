@@ -14,13 +14,15 @@ class AccountService {
         const salt = this.bcrypt.genSaltSync(10);
         const hash = this.bcrypt.hashSync(password, salt);
         return await this.accountRepo.register({ email, password: hash, is_admin: false });
-
     }
 
-    async accountProfilCreate(account) {       
-        return await this.profileDao.create({is_warned: false })
+
+
+    async accountProfilCreate(account) {
+        await this.profileDao.create({ is_warned: false })
             .then(profile => {
-                account.setProfile(profile)
+                account.setProfile(profile);
+                return profile;
             });
     }
 

@@ -15,8 +15,6 @@ class AccountRepository {
     async getByMail(mail) {
         return await this.accountDAO.findOne({where: {email: mail}});
     }
-
-
 }
 
 export default AccountRepository;

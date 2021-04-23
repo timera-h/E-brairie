@@ -11,10 +11,18 @@ class BorrowRouter {
             .get(borrowController.getAll);
 
         this.router.route('/borrow/:id')
-            .get(borrowController.getById);
+            .get(borrowController.getById)
+
+        this.router.route('/borrow/:accountId/:ressourceId')
+            .post(borrowController.save);
 
         this.router.route('/borrow')
-            .post(borrowController.save);
+            .patch(borrowController.warnProfil);
+
+        this.router.route('/borrow/test/:id')
+            .get(borrowController.getById)
+
+
     }
 }
 

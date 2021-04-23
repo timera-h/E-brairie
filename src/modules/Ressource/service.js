@@ -20,33 +20,7 @@ class RessourceService {
     }
 
     async getByFilters(reqQuery) {
-        return await this.ressourceRepository.getByFilters(reqQuery);
-        // const query = "SELECT * FROM `Ressource` WHERE ";
-        // let arrayQuery = [];
-        // if( params.title !== null || params.title !== "") {
-        //     arrayQuery.push("title: " + params.title); 
-        // }
-        // if( params.category !== null || params.category !== "") {
-        //     arrayQuery.push("category: " + params.category);
-        // }
-        // if( params.isBorrowed !== null || params.isBorrowed !== "") {
-        //     arrayQuery.push("is_borrowed: " + params.isBorrowed);
-        // }
-        // if( params.serie !== null || params.serie !== "") {
-        //     arrayQuery.push("serie: " + params.serie);
-        // }
-        // if( params.genre !== null || params.genre !== "") {
-        //     arrayQuery.push("genre: " + params.genre);
-        // }
-        // if( params.tomeNumber !== null || params.tomeNumber !== "") {
-        //     arrayQuery.push("tome_number: " + params.tomeNumber);
-        // }
-
-        // if(arrayQuery.length > 0) {
-        // const queryFields = arrayQuery.join(" AND ");
-        // const finalQuery = query + queryFields;
-        // return await Sequelize.query(finalQuery, {type: QueryTypes.SELECT});
-        // }
+        return await this.ressourceRepository.getByFilters(reqQuery);      
     } 
 }
 
