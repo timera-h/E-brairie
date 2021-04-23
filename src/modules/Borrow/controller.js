@@ -21,12 +21,8 @@ class BorrowController {
         } else {
             try {
                 const borrowProcess = await this.borrowService.save(ressourceId, accountId);
-                if (typeof borrowProcess === String)
-                    res.status(400).json(borrowProcess);
-                else
-                    res.status(201).json('new borrow saved');
-            } catch (error) {   
-                console.error(error);             
+                res.status(201).json(borrowProcess);
+            } catch (error) {
                 res.status(500).json(error);
             }
         }
@@ -60,7 +56,7 @@ class BorrowController {
             let borrow = await this.borrowService.testInclude(borrowId);
             res.status(200).json(borrow);
         } catch (error) {
-            console.error(error); 
+            console.error(error);
             res.status(400).json(error);
         }
     }

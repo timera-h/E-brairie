@@ -13,12 +13,11 @@ class BorrowService {
     async save(ressourceId, accountId) {
         const profile = await this.profilDao.findOne({ where: { id_account: accountId } });
         const ressource = await this.ressourceDao.findOne({ where: { id: ressourceId } });
-        console.log(...ressource)
         if (profile.is_warned === true) {
-            return "your Account has been warned, you cant borrow anymore";
+            return 'your Account has been warned, you cant borrow anymore';
         } else {
             if (ressource.is_borrow === true) {
-                return "sorry that Book is not available anymore";
+                return 'sorry that Book is not available anymore';
             }
             const rentDate = new Date();
             const dueDate = rentDate.setMonth(rentDate.getMonth() + 2);
@@ -31,10 +30,9 @@ class BorrowService {
                 id_ressource: ressourceId,
                 id_profile: profile.id
             }
-            console.log(borrow, "borrow");
-            await this.borrowRepository.save({ ...borrow });
-            return await this.ressourceDao.update({ is_borrowed: true }, { where: { id: ressourceId } });
-            // return await this.ressourceDao.create({...ressource, is_borrowed: true });
+            
+            await this.borrowRepository.save(borrow);
+            return await this.ressourceDao.update({ is_borrowed: true }, { where: { id: ressourceId } });            
         }
     }
 
@@ -42,8 +40,7 @@ class BorrowService {
         return await this.borrowRepository.getById(borrowId);
     }
 
-    async warnProfil(borrow) {
-        console.log(borrow);
+    async warnProfil(borrow) {        
         const profile = await this.profilDao.findOne({ where: { id: borrow.id_profile } });
         await this.borrowRepository.updateBorrow(borrow);
         return await this.profilDao.update({ is_warned: true }, { where: { id: profile.id } });
